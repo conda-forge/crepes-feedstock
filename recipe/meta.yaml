@@ -2,16 +2,16 @@
 {% set version = "0.4.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: b26fe78cfdacbbd7157116300828e61cbc474f4846f1d647a4efea07662b7d0f  
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: b26fe78cfdacbbd7157116300828e61cbc474f4846f1d647a4efea07662b7d0f
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
@@ -28,13 +28,13 @@ test:
     - crepes
 
 about:
-  home: "https://github.com/henrikbostrom/crepes"
+  home: https://github.com/henrikbostrom/crepes
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: "Conformal regressors and predictive systems (crepes)"
-  doc_url: "https://crepes.readthedocs.io/en/latest/"
-  dev_url: "https://github.com/henrikbostrom/crepes"
+  summary: Conformal regressors and predictive systems (crepes)
+  doc_url: https://crepes.readthedocs.io/en/latest/
+  dev_url: https://github.com/henrikbostrom/crepes
 
 extra:
   recipe-maintainers:
