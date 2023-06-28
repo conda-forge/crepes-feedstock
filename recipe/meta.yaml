@@ -32,7 +32,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: Conformal regressors and predictive systems (crepes)
+  summary: Conformal classifiers, regressors and predictive systems (crepes)
   doc_url: https://crepes.readthedocs.io/en/latest/
   dev_url: https://github.com/henrikbostrom/crepes
 
