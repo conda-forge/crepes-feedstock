@@ -6,25 +6,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: aa92d6abdb0f8c8bda7757bbc6e0e2a5230e68dda93241f1ae48fedf77895881
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
     - numpy
     - pandas
-    - python >=3.8
+    - python >={{ python_min }}
     - scikit-learn
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - crepes
 
