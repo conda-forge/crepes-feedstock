@@ -1,5 +1,5 @@
 {% set name = "crepes" %}
-{% set version = "0.7.1" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,21 +7,24 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: aa92d6abdb0f8c8bda7757bbc6e0e2a5230e68dda93241f1ae48fedf77895881
+  sha256: ce11cc2befe824db146b06e0de0b1d491cf74fe86832815e9a63bc2bec324410
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
   noarch: python
-
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
+  
 requirements:
   host:
+    - python {{ python_min }}
+    - setuptools >=61.0
+    - wheel
     - pip
-    - python >=3.8
   run:
+    - python >={{ python_min }}
     - numpy
     - pandas
-    - python >=3.8
+    - scipy
     - scikit-learn
 
 test:
