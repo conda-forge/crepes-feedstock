@@ -1,47 +1,46 @@
 {% set name = "crepes" %}
 {% set version = "0.8.0" %}
-{% set build = 4 %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/crepes-{{ version }}.tar.gz
   sha256: ce11cc2befe824db146b06e0de0b1d491cf74fe86832815e9a63bc2bec324410
 
 build:
-  number: {{ build }}
   noarch: python
-  script: 
-  - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
-  
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 5
+
 requirements:
   host:
-    - python
+    - python >=3.8
+    - setuptools >=61.0
+    - wheel
     - pip
-    -setuptools
-    
   run:
-    - python
+    - python >=3.8
     - numpy
     - pandas
     - scipy
-    - scikit-learn
 
 test:
   imports:
     - crepes
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/henrikbostrom/crepes
+  summary: Conformal classifiers, regressors, and predictive systems (crepes)
   license: BSD-3-Clause
-  license_family: BSD
   license_file: LICENSE
-  summary: Conformal classifiers, regressors and predictive systems (crepes)
-  doc_url: https://crepes.readthedocs.io/en/latest/
-  dev_url: https://github.com/henrikbostrom/crepes
 
 extra:
   recipe-maintainers:
     - henrikbostrom
+    
