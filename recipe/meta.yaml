@@ -1,6 +1,6 @@
 {% set name = "crepes" %}
 {% set version = "0.8.0" %}
-{% set build = 3 %}
+{% set build = 4 %}
 
 package:
   name: {{ name|lower }}
@@ -11,9 +11,10 @@ source:
   sha256: ce11cc2befe824db146b06e0de0b1d491cf74fe86832815e9a63bc2bec324410
 
 build:
-  noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv" 
   number: {{ build }}
+  noarch: python
+  script: 
+  - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   
 requirements:
   host:
