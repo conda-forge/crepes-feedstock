@@ -1,5 +1,6 @@
 {% set name = "crepes" %}
 {% set version = "0.8.0" %}
+{% set build = 3 %}
 
 package:
   name: {{ name|lower }}
@@ -12,14 +13,16 @@ source:
 build:
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv" 
-  number: 2
+  number: {{ build }}
   
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - pip
+    -setuptools
+    
   run:
-    - python >={{ python_min }}
+    - python
     - numpy
     - pandas
     - scipy
