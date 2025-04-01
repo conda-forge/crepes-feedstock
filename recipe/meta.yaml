@@ -17,12 +17,12 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python >=3.11
     - setuptools >=61.0
     - wheel
     - pip
   run:
-    - python >={{ python_min }}
+    - python >=3.11
     - numpy
     - pandas
     - scipy
@@ -34,7 +34,7 @@ test:
   commands:
     - pip check
   requires:
-    - python {{ python_min }}
+    - python >=3.11
     - pip
 
 about:
