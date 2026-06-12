@@ -1,5 +1,5 @@
 {% set name = "crepes" %}
-{% set version = "0.9.0" %}
+{% set version = "0.9.1" %}
 {% set build = 0 %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/crepes-{{ version }}.tar.gz
-  sha256: 7d06f760971c22ea3f8c5721db8721d7aead2162117ea68fe7302bfeddacaf35
+  sha256: 14255bfeef3d3cb76fefa78f9cef1d05ecf106dfae6f2bf76096eb7f5524c099
 
 build:
   noarch: python
